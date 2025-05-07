@@ -2,5 +2,5 @@
 
 PlantUp!
 =======
-Maui APP used to reconize plants from a photo. 
+A MAUI app that identifies plants from a photo. 
 
