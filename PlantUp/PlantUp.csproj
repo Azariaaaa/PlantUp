@@ -32,7 +32,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\app_icon.png" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -54,24 +54,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Assets\main-logo.png" />
-	  <None Remove="Assets\mauve.jpg" />
+	  <None Remove="Resources\Images\photo.svg" />
+	  <None Remove="Resources\Images\upload.svg" />
 	  <None Remove="tournesol.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Content Include="Resources\Raw\AboutAssets.txt" />
 	  <EmbeddedResource Include="Resources\Images\mainlogo.png" />
-	  <EmbeddedResource Include="Assets\mauve.jpg" />
-	  <EmbeddedResource Include="Assets\tournesol.jpg">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiImage Include="Assets\tournesol.jpg">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </MauiImage>
 	</ItemGroup>
 
 	<ItemGroup>

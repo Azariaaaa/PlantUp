@@ -1,19 +1,73 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantUp.MainPage"
-             xmlns:viewModel="clr-namespace:PlantUp.ViewModels">
-
-
-    <ContentPage.BindingContext>
-        <viewModel:MainViewModel />
-    </ContentPage.BindingContext>
+             xmlns:viewModel="clr-namespace:PlantUp.ViewModels"
+             BackgroundColor="White">
 
     <Grid RowDefinitions="Auto,*,Auto">
+        <!-- App Logo -->
         <Image Source="mainlogo.png"
-           HeightRequest="100"
-           HorizontalOptions="Center"
-           Margin="0,20,0,10"
-           Grid.Row="0" />
-    </Grid>
+               HeightRequest="100"
+               HorizontalOptions="Center"
+               Margin="0,20,0,10"
+               Grid.Row="0" />
 
+        <!-- Results -->
+        <CollectionView Grid.Row="1"
+                ItemsSource="{Binding PlantResults}"
+                Margin="20">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Black" CornerRadius="10" Padding="10" Margin="5">
+                        <StackLayout>
+                            <Label Text="{Binding Species.ScientificName}"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="DarkGreen" />
+
+                            <Label Text="{Binding Species.CommonNames[0]}"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="DarkGreen" />
+
+                            <Label Text="{Binding Score, StringFormat='Score: {0:P0}'}"
+                           FontSize="14"
+                           TextColor="Gray" />
+
+                            <!-- Si tu veux afficher une image associée : -->
+                            <Image Source="{Binding Images[0].Url}"
+                           HeightRequest="150"
+                           Aspect="AspectFill" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Bottom menu -->
+        <Grid Grid.Row="2"
+              BackgroundColor="LightGray"
+              HeightRequest="60"
+              ColumnDefinitions="*,*"
+              VerticalOptions="End">
+
+            <ImageButton Grid.Column="0"
+                         Source="resources/images/photo.svg"
+                         BackgroundColor="Transparent"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         HeightRequest="40"
+                         WidthRequest="40"
+                         Clicked="OnTakePhotoClicked" />
+
+            <ImageButton Grid.Column="1"
+                         Source="resources/images/upload.svg"
+                         BackgroundColor="Transparent"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         HeightRequest="40"
+                         WidthRequest="40" />
+        </Grid>
+    </Grid>
 </ContentPage>

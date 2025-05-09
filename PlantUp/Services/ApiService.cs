@@ -18,23 +18,23 @@ namespace PlantUp.Services
         {
             string requestUri = $"https://my-api.plantnet.org/v2/identify/all?api-key={_apiKey}";
 
-            using var client = new HttpClient();
-            using var form = new MultipartFormDataContent();
+            HttpClient client = new HttpClient();
+            MultipartFormDataContent form = new MultipartFormDataContent();
 
-            var imageContent = new ByteArrayContent(imageBytes);
+            ByteArrayContent imageContent = new ByteArrayContent(imageBytes);
             imageContent.Headers.ContentType = MediaTypeHeaderValue.Parse("image/jpeg");
-            form.Add(imageContent, "images", "tournesol.jpg");
+            form.Add(imageContent, "images", "photo.jpg");
 
             form.Add(new StringContent(organ), "organs");
 
-            var response = await client.PostAsync(requestUri, form);
+            HttpResponseMessage response = await client.PostAsync(requestUri, form);
             response.EnsureSuccessStatusCode();
 
             string json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-            string resultsJson = doc.RootElement.GetProperty("results").GetRawText();
 
-            return JsonSerializer.Deserialize<List<PlantResult>>(resultsJson) ?? new List<PlantResult>();
+            PlantNetResponse plantNetResponse = JsonSerializer.Deserialize<PlantNetResponse>(json);
+
+            return plantNetResponse?.Results ?? new List<PlantResult>();
         }
     }
 }
