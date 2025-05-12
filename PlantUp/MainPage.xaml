@@ -42,10 +42,18 @@
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-            <CollectionView.EmptyView>
-                <ActivityIndicator IsRunning="{Binding IsWaitingResult}" />
-            </CollectionView.EmptyView>
         </CollectionView>
+
+        <ActivityIndicator 
+        Grid.Row="1"
+        IsRunning="{Binding IsWaitingResult}" 
+        IsVisible="{Binding IsWaitingResult}" 
+        Color="Green"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        HeightRequest="50"
+        WidthRequest="50"
+        ZIndex="100"/>
 
         <!-- Bottom menu -->
         <Grid Grid.Row="2"
