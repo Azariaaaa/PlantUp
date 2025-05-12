@@ -16,6 +16,8 @@ namespace PlantUp.ViewModels
 
         [ObservableProperty]
         private ObservableCollection<PlantResult> plantResults;
+        [ObservableProperty]
+        private bool isWaitingResult;
 
         public MainViewModel(ApiService apiService) 
         {
@@ -25,8 +27,11 @@ namespace PlantUp.ViewModels
         public async Task SendPhotoAsync(string photoPath)
         {
             byte[] imageBytes = await File.ReadAllBytesAsync(photoPath);
+
+            IsWaitingResult = true;
             List<PlantResult> results = await _apiService.IdentifyPlantFromBytesAsync(imageBytes, "leaf");
             PlantResults = new ObservableCollection<PlantResult>(results);
+            IsWaitingResult = false;
         }
     }
 }

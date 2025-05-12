@@ -35,7 +35,6 @@
                            FontSize="14"
                            TextColor="Gray" />
 
-                            <!-- Si tu veux afficher une image associée : -->
                             <Image Source="{Binding Images[0].Url}"
                            HeightRequest="150"
                            Aspect="AspectFill" />
@@ -43,6 +42,9 @@
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <ActivityIndicator IsRunning="{Binding IsWaitingResult}" />
+            </CollectionView.EmptyView>
         </CollectionView>
 
         <!-- Bottom menu -->
