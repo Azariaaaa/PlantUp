@@ -10,5 +10,4 @@ V0.1
 - Display results: scientific name, common name, confidence score, and image
 - Terrible design 😅
 
-![App Screenshot](https://ibb.co/8nWBrn2n)
-
+![PlantUpV1](https://github.com/user-attachments/assets/a4290440-abe1-49a4-92a7-d8d31c67325e)
