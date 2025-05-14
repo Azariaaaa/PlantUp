@@ -4,3 +4,11 @@ PlantUp!
 =======
 A MAUI app that identifies plants from a photo. 
 
+V0.1 
+- Identify a plant from a photo
+- Identify a plant from a file
+- Display results: scientific name, common name, confidence score, and image
+- Terrible design 😅
+
+![App Screenshot](https://ibb.co/8nWBrn2n)
+
