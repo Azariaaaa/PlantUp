@@ -44,7 +44,7 @@ namespace PlantUp.ViewModels
             PlantResults?.Clear();
             IsWaitingResult = true;
 
-            List<PlantResult> results = await _apiService.IdentifyPlantFromBytesAsync(imageBytes, "leaf");
+            List<PlantResult> results = await _apiService.IdentifyPlantFromBytesAsync(imageBytes);
             PlantResults = new ObservableCollection<PlantResult>(results);
             IsWaitingResult = false;
         }

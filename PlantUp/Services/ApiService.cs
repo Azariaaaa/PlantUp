@@ -14,9 +14,10 @@ namespace PlantUp.Services
     {
         private readonly string _apiKey = "2b10ZrH2blcEM5bf3sJXKhh8e";
 
-        public async Task<List<PlantResult>> IdentifyPlantFromBytesAsync(byte[] imageBytes, string organ = "leaf")
+        public async Task<List<PlantResult>> IdentifyPlantFromBytesAsync(byte[] imageBytes)
         {
             string requestUri = $"https://my-api.plantnet.org/v2/identify/all?api-key={_apiKey}";
+            string organ = "auto";
 
             HttpClient client = new HttpClient();
             MultipartFormDataContent form = new MultipartFormDataContent();
