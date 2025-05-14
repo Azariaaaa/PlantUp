@@ -77,7 +77,8 @@
                          HorizontalOptions="Center"
                          VerticalOptions="Center"
                          HeightRequest="40"
-                         WidthRequest="40" />
+                         WidthRequest="40"
+                         Clicked="OnUploadPhotoClicked" />
         </Grid>
     </Grid>
 </ContentPage>

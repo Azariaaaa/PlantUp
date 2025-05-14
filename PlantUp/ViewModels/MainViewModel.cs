@@ -26,11 +26,24 @@ namespace PlantUp.ViewModels
 
         public async Task SendPhotoAsync(string photoPath)
         {
-            if(PlantResults != null)
-                PlantResults.Clear();
-
             byte[] imageBytes = await File.ReadAllBytesAsync(photoPath);
+            await IdentifyAndSetResultsAsync(imageBytes);
+        }
+        public async Task SendPhotoAsync(FileResult photo)
+        {
+            using Stream stream = await photo.OpenReadAsync();
+            using MemoryStream memoryStream = new MemoryStream();
+            await stream.CopyToAsync(memoryStream);
+            byte[] imageBytes = memoryStream.ToArray();
+
+            await IdentifyAndSetResultsAsync(imageBytes);
+        }
+
+        private async Task IdentifyAndSetResultsAsync(byte[] imageBytes)
+        {
+            PlantResults?.Clear();
             IsWaitingResult = true;
+
             List<PlantResult> results = await _apiService.IdentifyPlantFromBytesAsync(imageBytes, "leaf");
             PlantResults = new ObservableCollection<PlantResult>(results);
             IsWaitingResult = false;
