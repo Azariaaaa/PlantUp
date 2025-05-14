@@ -22,22 +22,28 @@
                     <Frame BorderColor="Black" CornerRadius="10" Padding="10" Margin="5">
                         <StackLayout>
                             <Label Text="{Binding Species.ScientificName}"
-                           FontAttributes="Bold"
-                           FontSize="16"
-                           TextColor="DarkGreen" />
+                                   FontAttributes="Bold"
+                                   FontSize="16"
+                                   TextColor="DarkGreen" />
 
                             <Label Text="{Binding Species.CommonNames[0]}"
-                           FontAttributes="Bold"
-                           FontSize="16"
-                           TextColor="DarkGreen" />
+                                   FontAttributes="Bold"
+                                   FontSize="16"
+                                   TextColor="DarkGreen" />
 
                             <Label Text="{Binding Score, StringFormat='Score: {0:P0}'}"
-                           FontSize="14"
-                           TextColor="Gray" />
+                                   FontSize="14"
+                                   TextColor="Gray" />
 
-                            <Image Source="{Binding Images[0].Url}"
-                           HeightRequest="150"
-                           Aspect="AspectFill" />
+                            <Frame CornerRadius="20"
+                                   Padding="0"
+                                   Margin="5"
+                                   HasShadow="True"
+                                   IsClippedToBounds="True"
+                                   BackgroundColor="Transparent">
+                                   <Image Source="{Binding Images[0].Url.Original}"
+                                          Aspect="AspectFill" />
+                            </Frame>
                         </StackLayout>
                     </Frame>
                 </DataTemplate>
