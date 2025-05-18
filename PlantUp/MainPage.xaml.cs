@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using PlantUp.Models;
 using PlantUp.Services;
 using PlantUp.ViewModels;
@@ -43,6 +44,16 @@ public partial class MainPage : ContentPage
         if (photo != null)
         {
             await _viewModel.SendPhotoAsync(photo);
+        }
+    }
+
+    private async void OnPlantSelected(object sender, SelectionChangedEventArgs e)
+    {
+        PlantResult selectedPlant = (PlantResult) e.CurrentSelection.FirstOrDefault();
+        if (selectedPlant != null)
+        {
+            await Navigation.PushAsync(new PlantDetails(selectedPlant));
+            PlantList.SelectedItem = null;
         }
     }
 }

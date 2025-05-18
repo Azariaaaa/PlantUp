@@ -13,13 +13,19 @@
                Grid.Row="0" />
 
         <!-- Results -->
-        <CollectionView Grid.Row="1"
+        <CollectionView x:Name="PlantList"
+                Grid.Row="1"
                 ItemsSource="{Binding PlantResults}"
-                Margin="20">
+                Margin="20"
+                SelectionMode="Single"
+                SelectionChanged="OnPlantSelected">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BorderColor="Black" CornerRadius="10" Padding="10" Margin="5">
+                    <Frame BorderColor="Black" 
+                           CornerRadius="10" 
+                           Padding="10" 
+                           Margin="5">
                         <StackLayout>
                             <Label Text="{Binding Species.ScientificName}"
                                    FontAttributes="Bold"
