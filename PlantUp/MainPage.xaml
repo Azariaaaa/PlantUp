@@ -23,9 +23,13 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame BorderColor="Black" 
-                           CornerRadius="10" 
-                           Padding="10" 
-                           Margin="5">
+                        CornerRadius="10" 
+                        Padding="10"
+                        BackgroundColor="White"
+                        Margin="5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPlantSelected" />
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Label Text="{Binding Species.ScientificName}"
                                    FontAttributes="Bold"

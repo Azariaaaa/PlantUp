@@ -20,16 +20,21 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+		//AppShell DI
+        builder.Services.AddSingleton<AppShell>();
 
         //Pages DI
         builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<PlantDetails>();
 
-		//ViewModels DI
-		builder.Services.AddTransient<MainViewModel>();
+        //ViewModels DI
+        builder.Services.AddTransient<MainViewModel>();
+		builder.Services.AddTransient<PlantDetailsViewModel>();
 
         //Services DI
         builder.Services.AddTransient<ApiService>();
 
-		return builder.Build();
-	}
+        var app = builder.Build();
+        return app;
+    }
 }

@@ -47,13 +47,12 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private async void OnPlantSelected(object sender, SelectionChangedEventArgs e)
+    private async void OnPlantSelected(object sender, EventArgs e)
     {
-        PlantResult selectedPlant = (PlantResult) e.CurrentSelection.FirstOrDefault();
-        if (selectedPlant != null)
+        if (sender is Frame frame && frame.BindingContext is PlantResult selectedPlant)
         {
-            await Navigation.PushAsync(new PlantDetails(selectedPlant));
-            PlantList.SelectedItem = null;
+            var encodedName = Uri.EscapeDataString(selectedPlant.Species.ScientificName);
+            await Shell.Current.GoToAsync($"///PlantDetails?PlantName={encodedName}");
         }
     }
 }

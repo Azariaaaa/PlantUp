@@ -3,12 +3,9 @@
     x:Class="PlantUp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:PlantUp"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:pages="clr-namespace:PlantUp">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <ShellContent Title="Accueil" ContentTemplate="{DataTemplate pages:MainPage}" Route="MainPage" />
+    <ShellContent Title="Détail Plante" ContentTemplate="{DataTemplate pages:PlantDetails}" Route="PlantDetails" />
 
 </Shell>
