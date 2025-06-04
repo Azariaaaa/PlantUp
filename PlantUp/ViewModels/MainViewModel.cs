@@ -12,14 +12,14 @@ namespace PlantUp.ViewModels
 {
     public partial class MainViewModel : ObservableObject
     {
-        private readonly ApiService _apiService;
+        private readonly PlantNetApiService _apiService;
 
         [ObservableProperty]
         private ObservableCollection<PlantResult> plantResults;
         [ObservableProperty]
         private bool isWaitingResult;
 
-        public MainViewModel(ApiService apiService) 
+        public MainViewModel(PlantNetApiService apiService) 
         {
             _apiService = apiService;
         }

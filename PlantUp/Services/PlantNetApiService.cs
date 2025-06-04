@@ -10,7 +10,7 @@ using PlantUp.Models;
 
 namespace PlantUp.Services
 {
-    public class ApiService
+    public class PlantNetApiService
     {
         private readonly string _apiKey = "2b10ZrH2blcEM5bf3sJXKhh8e";
 

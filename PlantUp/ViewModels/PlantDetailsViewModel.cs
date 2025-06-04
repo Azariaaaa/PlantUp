@@ -11,10 +11,10 @@ namespace PlantUp.ViewModels
 {
     public partial class PlantDetailsViewModel : ObservableObject
     {
-        private readonly ApiService _apiService;
+        private readonly PlantNetApiService _apiService;
         [ObservableProperty]
         public string plantName;
-        public PlantDetailsViewModel(ApiService apiService)
+        public PlantDetailsViewModel(PlantNetApiService apiService)
         {
             _apiService = apiService;
         }

@@ -32,7 +32,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<PlantDetailsViewModel>();
 
         //Services DI
-        builder.Services.AddTransient<ApiService>();
+        builder.Services.AddTransient<PlantNetApiService>();
 
         var app = builder.Build();
         return app;
