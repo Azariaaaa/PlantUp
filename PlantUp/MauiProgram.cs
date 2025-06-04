@@ -33,6 +33,7 @@ public static class MauiProgram
 
         //Services DI
         builder.Services.AddTransient<PlantNetApiService>();
+		builder.Services.AddTransient<TrefleApiService>();
 
         var app = builder.Build();
         return app;

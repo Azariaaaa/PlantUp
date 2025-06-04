@@ -13,15 +13,17 @@ namespace PlantUp.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         private readonly PlantNetApiService _apiService;
+        private readonly TrefleApiService _treleApiService;
 
         [ObservableProperty]
         private ObservableCollection<PlantResult> plantResults;
         [ObservableProperty]
         private bool isWaitingResult;
 
-        public MainViewModel(PlantNetApiService apiService) 
+        public MainViewModel(PlantNetApiService apiService, TrefleApiService trefleApiService) 
         {
             _apiService = apiService;
+            _treleApiService = trefleApiService;
         }
 
         public async Task SendPhotoAsync(string photoPath)
