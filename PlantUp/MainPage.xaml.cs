@@ -16,10 +16,12 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         _viewModel = viewModel;
         BindingContext = _viewModel;
+        _viewModel.TestTrefle();
     }
 
     public async Task<string> TakePhotoAsync()
     {
+        _viewModel.TestTrefle();
         if (MediaPicker.Default.IsCaptureSupported)
         {
             FileResult photo = await MediaPicker.Default.CapturePhotoAsync();

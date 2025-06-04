@@ -25,7 +25,10 @@ namespace PlantUp.ViewModels
             _apiService = apiService;
             _treleApiService = trefleApiService;
         }
-
+        public async Task TestTrefle()
+        {
+            var plant = await _treleApiService.GetPlantDetails("Solidago erecta");
+        }
         public async Task SendPhotoAsync(string photoPath)
         {
             byte[] imageBytes = await File.ReadAllBytesAsync(photoPath);

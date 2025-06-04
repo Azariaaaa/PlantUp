@@ -25,9 +25,9 @@ namespace PlantUp.Services
             DetailedPlant plant = await GetDetailedPlantByIdAsync(plantId);
             return plant;
         }
-        public async Task<int?> GetPlantIdByNameAsync(string plantScientifiqueName)
+        public async Task<int?> GetPlantIdByNameAsync(string plantScientificName)
         {
-            string requestUri = $"https://trefle.io/api/v1/plants/search?token={_apiKey}&q={Uri.EscapeDataString(plantScientifiqueName)}";
+            string requestUri = $"https://trefle.io/api/v1/plants?token={_apiKey}&filter[scientific_name]={Uri.EscapeDataString(plantScientificName)}";
 
             using HttpClient httpClient = new();
             try
@@ -49,7 +49,7 @@ namespace PlantUp.Services
                 }
                 else
                 {
-                    Console.WriteLine("Aucune plante trouvée.");
+                    Console.WriteLine("Aucune plante trouvée avec ce nom scientifique.");
                     return null;
                 }
             }
