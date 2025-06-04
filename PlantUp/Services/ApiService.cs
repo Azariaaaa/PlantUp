@@ -16,7 +16,7 @@ namespace PlantUp.Services
 
         public async Task<List<PlantResult>> IdentifyPlantFromBytesAsync(byte[] imageBytes)
         {
-            string requestUri = $"https://my-api.plantnet.org/v2/identify/all?api-key={_apiKey}&include-related-images=true";
+            string requestUri = $"https://my-api.plantnet.org/v2/identify/all?lang=fr&api-key={_apiKey}&include-related-images=true";
             string organ = "auto";
 
             HttpClient client = new HttpClient();
