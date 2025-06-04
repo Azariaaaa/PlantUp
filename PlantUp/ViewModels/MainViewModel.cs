@@ -27,7 +27,7 @@ namespace PlantUp.ViewModels
         }
         public async Task TestTrefle()
         {
-            var plant = await _treleApiService.GetPlantDetails("Solidago erecta");
+            var plant = await _treleApiService.GetPlantDetails("Prunus avium");
         }
         public async Task SendPhotoAsync(string photoPath)
         {
@@ -52,7 +52,6 @@ namespace PlantUp.ViewModels
             List<PlantResult> results = await _apiService.IdentifyPlantFromBytesAsync(imageBytes);
             PlantResults = new ObservableCollection<PlantResult>(results);
             IsWaitingResult = false;
-        
         }
     }
 }
