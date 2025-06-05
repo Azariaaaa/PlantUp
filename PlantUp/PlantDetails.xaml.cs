@@ -20,4 +20,10 @@ public partial class PlantDetails : ContentPage
         _viewModel = viewModel;
         BindingContext = _viewModel;
     }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await _viewModel.GetPlantInformations();
+    }
 }
