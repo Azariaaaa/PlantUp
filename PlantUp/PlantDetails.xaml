@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantUp.PlantDetails"
              Title="Détails de la plante"
-             BackgroundColor="White">
+             BackgroundColor="Black">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">

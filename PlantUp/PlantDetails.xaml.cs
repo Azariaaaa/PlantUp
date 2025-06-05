@@ -11,7 +11,11 @@ public partial class PlantDetails : ContentPage
     public string IncomingPlantName
     {
         get => _viewModel.PlantName;
-        set => _viewModel.PlantName = value;
+        set
+        {
+            _viewModel.PlantName = Uri.UnescapeDataString(value);
+            _ = _viewModel.GetPlantInformations();
+        }
     }
 
     public PlantDetails(PlantDetailsViewModel viewModel)
@@ -19,11 +23,5 @@ public partial class PlantDetails : ContentPage
         InitializeComponent();
         _viewModel = viewModel;
         BindingContext = _viewModel;
-    }
-
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-        await _viewModel.GetPlantInformations();
     }
 }
