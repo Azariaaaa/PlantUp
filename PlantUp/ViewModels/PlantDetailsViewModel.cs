@@ -11,12 +11,20 @@ namespace PlantUp.ViewModels
 {
     public partial class PlantDetailsViewModel : ObservableObject
     {
-        private readonly PlantNetApiService _apiService;
+        private readonly TrefleApiService _trefleApiService;
         [ObservableProperty]
         public string plantName;
-        public PlantDetailsViewModel(PlantNetApiService apiService)
+        [ObservableProperty]
+        public DetailedPlant plant;
+
+        public PlantDetailsViewModel(TrefleApiService trefleApiService)
         {
-            _apiService = apiService;
+            _trefleApiService = trefleApiService;
+        }
+
+        public async Task GetPlantInformations()
+        {
+            Plant = await _trefleApiService.GetPlantDetails(PlantName);
         }
     }
 }

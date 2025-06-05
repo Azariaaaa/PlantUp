@@ -13,27 +13,23 @@ namespace PlantUp.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         private readonly PlantNetApiService _apiService;
-        private readonly TrefleApiService _treleApiService;
 
         [ObservableProperty]
         private ObservableCollection<PlantResult> plantResults;
         [ObservableProperty]
         private bool isWaitingResult;
 
-        public MainViewModel(PlantNetApiService apiService, TrefleApiService trefleApiService) 
+        public MainViewModel(PlantNetApiService apiService) 
         {
             _apiService = apiService;
-            _treleApiService = trefleApiService;
         }
-        public async Task TestTrefle()
-        {
-            var plant = await _treleApiService.GetPlantDetails("Prunus avium");
-        }
+
         public async Task SendPhotoAsync(string photoPath)
         {
             byte[] imageBytes = await File.ReadAllBytesAsync(photoPath);
             await IdentifyAndSetResultsAsync(imageBytes);
         }
+
         public async Task SendPhotoAsync(FileResult photo)
         {
             using Stream stream = await photo.OpenReadAsync();
