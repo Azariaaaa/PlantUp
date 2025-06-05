@@ -46,7 +46,8 @@
             <Label Text="{Binding Plant.HarvestTimeAverage}" />
 
             <Label Text="PH minimum / maximum :" FontAttributes="Bold" />
-            <Label Text="{Binding Plant.MinPH} - {Binding Plant.MaxPH}" />
+            <Label Text="{Binding Plant.MinPH}" />
+            <Label Text="{Binding Plant.MaxPH}" />
 
             <Label Text="Lumière (intensité) :" FontAttributes="Bold" />
             <Label Text="{Binding Plant.Light}" />
@@ -57,7 +58,7 @@
             <BoxView HeightRequest="2" Color="LightGray" />
 
             <!-- Climat & environnement -->
-            <Label Text="Climat & Environnement" FontSize="20" FontAttributes="Bold" />
+            <Label Text="Climat et Environnement" FontSize="20" FontAttributes="Bold" />
             <Label Text="Mois de fructification :" FontAttributes="Bold" />
             <Label Text="{Binding Plant.FruitMonths[0]}" />
 
@@ -68,7 +69,8 @@
             <Label Text="{Binding Plant.MinimumRootDepth}" />
 
             <Label Text="Température minimale / maximale (°C) :" FontAttributes="Bold" />
-            <Label Text="{Binding Plant.MinimumTemperature} - {Binding Plant.MaximumTemperature}" />
+            <Label Text="{Binding Plant.MinimumTemperature}" />
+            <Label Text="{Binding Plant.MaximumTemperature}" />
 
         </VerticalStackLayout>
     </ScrollView>
