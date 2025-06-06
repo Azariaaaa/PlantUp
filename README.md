@@ -1,5 +1,3 @@
-# PlantUp
-
 PlantUp!
 =======
 A .Net MAUI app that identifies plants from a photo using Pl@ntNet and Trefle.io APIs.
@@ -11,6 +9,8 @@ V0.1
 - Terrible design 😅
 
 <img src="https://github.com/user-attachments/assets/a4290440-abe1-49a4-92a7-d8d31c67325e" alt="PlantUpV1" width="400"/>
+
+======================================================================================
 
 V0.2
 - Added plant details page
