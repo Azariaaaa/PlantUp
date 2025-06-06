@@ -9,7 +9,7 @@ namespace PlantUp.Models
 {
     public class Species
     {
-        [JsonPropertyName("scientificName")]
+        [JsonPropertyName("scientificNameWithoutAuthor")]
         public string ScientificName { get; set; }
 
         [JsonPropertyName("commonNames")]
